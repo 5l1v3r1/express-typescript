@@ -28,6 +28,9 @@ class Express {
 		this.mountRoutes();
 	}
 
+	/**
+	 * Mounts all the ENV constants
+	 */
 	private mountDotEnv (): void {
 		this.express = Locals.init(this.express);
 	}
@@ -45,12 +48,13 @@ class Express {
 	private mountRoutes (): void {
 		this.express = Routes.mountWeb(this.express);
 		this.express = Routes.mountApi(this.express);
+		this.express = Routes.mountGraphQL(this.express);
 	}
 
 	/**
 	 * Starts the express server
 	 */
-	public init (): any {
+	public init (): void {
 		const port: number = Locals.config().port;
 
 		// Registering Exception / Error Handlers

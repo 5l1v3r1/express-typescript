@@ -22,8 +22,9 @@ class CsrfToken {
         // Check for CSRF token iff the original url
         // does not contains the api substring
         _express.use((req, res, next) => {
-            const apiPrefix = Locals_1.default.config().apiPrefix;
-            if (req.originalUrl.includes(`/${apiPrefix}/`)) {
+            const { apiPrefix, graphqlPrefix } = Locals_1.default.config();
+            if (req.originalUrl.includes(`/${apiPrefix}/`) ||
+                req.originalUrl.includes(`/${graphqlPrefix}`)) {
                 next();
             }
             else {

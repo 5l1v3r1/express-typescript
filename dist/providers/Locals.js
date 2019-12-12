@@ -36,12 +36,18 @@ class Locals {
         const redisHttpHost = process.env.REDIS_QUEUE_HOST || '127.0.0.1';
         const redisPrefix = process.env.REDIS_QUEUE_DB || 'q';
         const redisDB = process.env.REDIS_QUEUE_PREFIX || 3;
+        const isGraphQLEnabled = process.env.IS_GRAPHQL_ENABLED || false;
+        const graphqlPrefix = process.env.GRAPHQL_PREFIX || 'graphql';
+        const isGraphIQLEnabled = process.env.IS_GRAPHIQL_ENABLED || false;
         return {
             appSecret,
             apiPrefix,
             company,
             copyright,
             description,
+            graphqlPrefix,
+            isGraphQLEnabled,
+            isGraphIQLEnabled,
             isCORSEnabled,
             jwtExpiresIn,
             keywords,

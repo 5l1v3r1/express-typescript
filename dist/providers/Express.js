@@ -20,6 +20,9 @@ class Express {
         this.mountMiddlewares();
         this.mountRoutes();
     }
+    /**
+     * Mounts all the ENV constants
+     */
     mountDotEnv() {
         this.express = Locals_1.default.init(this.express);
     }
@@ -35,6 +38,7 @@ class Express {
     mountRoutes() {
         this.express = Routes_1.default.mountWeb(this.express);
         this.express = Routes_1.default.mountApi(this.express);
+        this.express = Routes_1.default.mountGraphQL(this.express);
     }
     /**
      * Starts the express server
