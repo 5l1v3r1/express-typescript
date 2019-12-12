@@ -9,7 +9,7 @@ export const resolvers = {
 	},
 	Mutation: {
 		login: async (_, args) => {
-			//
+			validationResult(args)
 		}
 	}
 };
